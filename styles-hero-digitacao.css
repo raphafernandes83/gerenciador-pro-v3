@@ -1,0 +1,78 @@
+/* ============================================================
+   EFEITO DE DIGITAÇÃO DO TÍTULO DO HERO
+   Par do hero-digitacao.js. Arquivo separado de propósito: não
+   altera o sistema visual existente e sai inteiro se preciso.
+
+   Camadas:
+   - .digita-fantasma  fica no fluxo normal com opacity 0. Segura a
+     altura do bloco (nada de layout pulando a cada letra) e é o que
+     leitores de tela leem — a frase completa, estável.
+   - .digita-vivo      camada absoluta por cima, onde o texto é
+     digitado. aria-hidden, porque é ruído para leitor de tela.
+   ============================================================ */
+
+.h1-digitando {
+  position: relative;
+}
+
+.h1-digitando .digita-fantasma {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.h1-digitando .digita-vivo {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* O balance re-quebra as linhas conforme o texto cresce e faria o
+   título tremer durante a digitação; nas duas camadas, desligado
+   (mesma geometria nas duas = fantasma dimensiona certo).
+   E como as camadas são <span>, a regra `.hero h1 span` do sistema
+   (gradiente + color transparent) pegaria nelas — aqui ela é
+   neutralizada; o span interno de verdade continua com o gradiente. */
+.h1-digitando .digita-fantasma,
+.h1-digitando .digita-vivo {
+  text-wrap: wrap;
+  color: inherit;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+
+/* A barrinha de digitação. Herda o tamanho do texto via em. */
+.digita-cursor {
+  display: inline-block;
+  width: .055em;
+  min-width: 2.5px;
+  height: .82em;
+  margin-left: .045em;
+  vertical-align: -.05em;
+  border-radius: 1.5px;
+  /* O "unify" transformou --orange em cinza; o laranja de verdade do
+     sistema vive em --brand-orange. A barrinha usa o laranja da marca. */
+  background: var(--brand-orange, #ff7a1a);
+}
+[data-tema="claro"] .digita-cursor {
+  background: var(--brand-orange-deep, #d95f09);
+}
+
+/* Piscando: parada no início (antes de digitar) e no fim. Enquanto
+   digita, fica acesa — como um cursor de verdade se comporta. */
+.digita-cursor.piscando {
+  animation: digita-piscar 1.06s steps(1, end) infinite;
+}
+@keyframes digita-piscar {
+  0%, 54%  { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+/* Movimento reduzido: a digitação continua (texto aparecendo não é
+   o tipo de movimento que a preferência mira); só a barrinha para
+   de piscar e fica acesa. */
+@media (prefers-reduced-motion: reduce) {
+  .digita-cursor,
+  .digita-cursor.piscando { animation: none; opacity: 1; }
+}

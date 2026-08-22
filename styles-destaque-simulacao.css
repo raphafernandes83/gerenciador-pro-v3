@@ -1,0 +1,97 @@
+/* ============================================================
+   DESTAQUE DO ATALHO "SIMULAÇÃO"
+   Carregada depois de styles.css. Arquivo separado de proposito:
+   nao altera o sistema visual existente e sai inteiro se preciso.
+
+   Por que NAO usar pilula com fundo: fundo + borda e o padrao de
+   "aba ativa" e faz o item parecer ja selecionado. Aqui o link
+   continua um link comum, so que mais vivo, com um ponto de
+   notificacao pulsando no canto — a linguagem de "tem novidade
+   aqui", que convida ao clique em vez de anunciar posicao.
+
+   Por que ::before e nao ::after: o ::after dos links do header ja
+   e o sublinhado de hover do sistema. Usar ::after quebraria esse
+   efeito (e perderia a disputa de especificidade com ele).
+   ============================================================ */
+
+.nav-simulacao {
+  position: relative;
+  /* Um degrau acima dos vizinhos, sem virar botao. */
+  color: var(--text) !important;
+  font-weight: 800 !important;
+}
+
+/* Ponto de notificacao. Vem do CSS e nao do dicionario: vale nos
+   oito idiomas sem mexer em nenhuma traducao. */
+.header-nav > a.nav-simulacao::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: -7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: simulacao-aviso 2.4s ease-in-out infinite;
+}
+
+@keyframes simulacao-aviso {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(86, 183, 255, .38); }
+  50%      { box-shadow: 0 0 0 7px rgba(86, 183, 255, 0); }
+}
+
+/* No hover o item se acende de vez: a recompensa de ter reparado. */
+.header-nav > a.nav-simulacao:hover {
+  color: var(--blue-text, #a9d9fa) !important;
+}
+
+.nav-simulacao:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Menu mobile: o item e largo, entao o ponto acompanha o texto em
+   vez de ficar preso ao canto do bloco. */
+.mobile-menu a.nav-simulacao {
+  justify-content: flex-start;
+  gap: 10px;
+}
+.mobile-menu a.nav-simulacao::before {
+  content: "";
+  position: static;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: simulacao-aviso 2.4s ease-in-out infinite;
+}
+
+/* Tema claro: mesmo comportamento, azul que sobrevive ao fundo claro
+   (o token --blue vira um azul claro demais neste tema). */
+[data-tema="claro"] .header-nav > a.nav-simulacao::before,
+[data-tema="claro"] .mobile-menu a.nav-simulacao::before {
+  background: #1b5f96;
+  animation-name: simulacao-aviso-claro;
+}
+@keyframes simulacao-aviso-claro {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(27, 95, 150, .4); }
+  50%      { box-shadow: 0 0 0 7px rgba(27, 95, 150, 0); }
+}
+[data-tema="claro"] .header-nav > a.nav-simulacao:hover {
+  color: #1b5f96 !important;
+}
+
+/* Quem pediu menos animacao mantem o aviso, sem o movimento. */
+@media (prefers-reduced-motion: reduce) {
+  .header-nav > a.nav-simulacao::before,
+  .mobile-menu a.nav-simulacao::before {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(86, 183, 255, .3);
+  }
+  [data-tema="claro"] .header-nav > a.nav-simulacao::before,
+  [data-tema="claro"] .mobile-menu a.nav-simulacao::before {
+    box-shadow: 0 0 0 3px rgba(27, 95, 150, .32);
+  }
+}
