@@ -29,12 +29,56 @@ jobs:
           enablement: true
       - name: Preparar versão atual do site
         run: |
-          sed -i 's/config.js?v=20260803-2/config.js?v=20260902-5/' index.html
-          sed -i 's|</head>|  <script defer src="current-site-copy.js?v=20260902-1"></script>\n</head>|' index.html
-          sed -i 's|https://raphafernandes83.github.io/gerenciador-pro-v2/og-image.jpg|https://raphafernandes83.github.io/gerenciador-pro-v3/assets/brand/gp-mark-512.png|g' index.html
-          sed -i 's|<meta property="og:image:width" content="1200">|<meta property="og:image:width" content="512">|' index.html
-          sed -i 's|<meta property="og:image:height" content="630">|<meta property="og:image:height" content="512">|' index.html
-          sed -i 's|<meta property="og:image:type" content="image/jpeg">|<meta property="og:image:type" content="image/png">|' index.html
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          replacements = {
+              "config.js?v=20260803-2": "config.js?v=20260902-6",
+              '<strong data-i18n="launch.01">PRE-LAUNCH</strong>': '<strong data-i18n="launch.01">GERENCIADOR PRO</strong>',
+              '<span data-i18n="launch.02">A new category of operational management is coming.</span>': '<span data-i18n="launch.02">Operational management available for traders.</span>',
+              '<a href="#cadastro" data-i18n="launch.03">Join the list <span>→</span></a>': '<a href="#cadastro" data-i18n="launch.03">Explore Gerenciador PRO <span>→</span></a>',
+              '<a class="header-link" href="#cadastro" data-i18n="header.07">Join now</a>': '<a class="header-link" href="#cadastro" data-i18n="header.07">Partner Program</a>',
+              '<a href="#cadastro" data-i18n="mobile-menu.04">Join now</a>': '<a href="#cadastro" data-i18n="mobile-menu.04">Partner Program</a>',
+              '<a class="button button-primary" href="#cadastro" data-i18n="inicio.04">Show me first <span>→</span></a>': '<a class="button button-primary" href="#cadastro" data-i18n="inicio.04">Explore Gerenciador PRO <span>→</span></a>',
+              '<a class="button button-primary" href="#cadastro" data-i18n="simulacao.15">Join the list <span aria-hidden="true">→</span></a>': '<a class="button button-primary" href="#cadastro" data-i18n="simulacao.15">Explore Gerenciador PRO <span aria-hidden="true">→</span></a>',
+              '<strong data-i18n="section.01">Still deciding?</strong>': '<strong data-i18n="section.01">Want to take the next step?</strong>',
+              '<span data-i18n="section.02">Free registration, no charge at this stage — it takes under 2 minutes.</span>': '<span data-i18n="section.02">Explore the product and, if you want to recommend it, discover the Partner Program.</span>',
+              '<a class="button button-secondary" href="#cadastro" data-i18n="section.03">I want to join the list <span>→</span></a>': '<a class="button button-secondary" href="#cadastro" data-i18n="section.03">See Partner Program <span>→</span></a>',
+              '<span class="eyebrow" data-i18n="participacao.01"><i></i> Be there from the start</span>': '<span class="eyebrow" data-i18n="participacao.01"><i></i> Product and partnership</span>',
+              '<h2 data-i18n="participacao.02">A new company. A different proposition. A chance to arrive first.</h2>': '<h2 data-i18n="participacao.02">Use Gerenciador PRO or help other people discover it.</h2>',
+              '<p data-i18n="participacao.03">Join the list as a future user, or register your interest in taking part in the expansion as a partner.</p>': '<p data-i18n="participacao.03">The product is available, and the Partner Program lets you promote it with your own referral link.</p>',
+              '<h3 data-i18n="participacao.04">Future user</h3>': '<h3 data-i18n="participacao.04">Gerenciador PRO</h3>',
+              '<p data-i18n="participacao.05">Get launch information, early access and development updates.</p>': '<p data-i18n="participacao.05">Explore the system, its operational tools and its performance intelligence.</p>',
+              '<h3 data-i18n="participacao.06">Reseller or partner</h3>': '<h3 data-i18n="participacao.06">Partner Program</h3>',
+              '<p data-i18n="participacao.07">Register interest in the future referral, promotion and sales programme.</p>': '<p data-i18n="participacao.07">Activate your partnership, receive your referral link and track your network through the Partner Center.</p>',
+              '<h3 data-i18n="participacao.08">No commitment</h3>': '<h3 data-i18n="participacao.08">Independent access</h3>',
+              '<p data-i18n="participacao.09">Registration is free and creates no charge or obligation to buy.</p>': '<p data-i18n="participacao.09">You do not need to buy a PRO subscription to become a partner.</p>',
+              '<article><b>2</b><span data-i18n="global.07">control styles</span></article>': '<article><b>4</b><span data-i18n="global.07">control styles</span></article>',
+              '<strong data-i18n="operations.10">Choose the finish</strong>': '<strong data-i18n="operations.10">Choose your control style</strong>',
+              '<p data-i18n="operations.11">3D controls or a flatter, more refined version.</p>': '<p data-i18n="operations.11">Four control styles let you adapt the interface to the way you prefer to operate.</p>',
+              '<span data-i18n="footer.04">Web app in development</span>': '<span data-i18n="footer.04">Product available</span>',
+              '<span data-i18n="footer.05">Pre-launch</span>': '<span data-i18n="footer.05">Partner Program</span>',
+              '<a href="#cadastro" class="floating-cta-btn" data-i18n="floating-cta.01">Join the list <span aria-hidden="true">→</span></a>': '<a href="#cadastro" class="floating-cta-btn" data-i18n="floating-cta.01">Partner Program <span aria-hidden="true">→</span></a>',
+              "https://raphafernandes83.github.io/gerenciador-pro-v2/og-image.jpg": "https://raphafernandes83.github.io/gerenciador-pro-v3/assets/brand/gp-mark-512.png",
+              '<meta property="og:image:width" content="1200">': '<meta property="og:image:width" content="512">',
+              '<meta property="og:image:height" content="630">': '<meta property="og:image:height" content="512">',
+              '<meta property="og:image:type" content="image/jpeg">': '<meta property="og:image:type" content="image/png">',
+          }
+
+          for old, new in replacements.items():
+              html = html.replace(old, new)
+
+          extras = (
+              '  <link rel="stylesheet" href="site-fixes.css?v=20260902-1">\n'
+              '  <script defer src="current-site-copy.js?v=20260902-2"></script>\n'
+              '  <script defer src="site-fixes.js?v=20260902-1"></script>\n'
+          )
+          html = html.replace("</head>", extras + "</head>")
+          path.write_text(html, encoding="utf-8")
+          PY
       - name: Preparar arquivos
         uses: actions/upload-pages-artifact@v3
         with:
