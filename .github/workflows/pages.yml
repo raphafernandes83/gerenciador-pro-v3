@@ -27,8 +27,14 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Atualizar versão do script de parceiros
-        run: sed -i 's/config.js?v=20260803-2/config.js?v=20260902-4/' index.html
+      - name: Preparar versão atual do site
+        run: |
+          sed -i 's/config.js?v=20260803-2/config.js?v=20260902-5/' index.html
+          sed -i 's|</head>|  <script defer src="current-site-copy.js?v=20260902-1"></script>\n</head>|' index.html
+          sed -i 's|https://raphafernandes83.github.io/gerenciador-pro-v2/og-image.jpg|https://raphafernandes83.github.io/gerenciador-pro-v3/assets/brand/gp-mark-512.png|g' index.html
+          sed -i 's|<meta property="og:image:width" content="1200">|<meta property="og:image:width" content="512">|' index.html
+          sed -i 's|<meta property="og:image:height" content="630">|<meta property="og:image:height" content="512">|' index.html
+          sed -i 's|<meta property="og:image:type" content="image/jpeg">|<meta property="og:image:type" content="image/png">|' index.html
       - name: Preparar arquivos
         uses: actions/upload-pages-artifact@v3
         with:
