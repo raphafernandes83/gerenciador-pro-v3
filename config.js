@@ -3,7 +3,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
 (() => {
   const styleLink = document.createElement('link');
   styleLink.rel = 'stylesheet';
-  styleLink.href = 'partner-v3.css?v=20260902-2';
+  styleLink.href = 'partner-v3.css?v=20260902-3';
   document.head.appendChild(styleLink);
 
   const prehide = document.createElement('style');
@@ -59,10 +59,24 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
     const template = document.createElement('template');
     template.innerHTML = `
       <section class="form-section partner-conversion-section" id="cadastro" lang="pt-BR">
+        <div class="partner-topic-hero">
+          <span class="partner-topic-kicker">UMA NOVA FORMA DE PARTICIPAR</span>
+          <h2><span>Programa de Parceiros Gerenciador PRO:</span> indique o produto, construa sua rede e receba comissões.</h2>
+          <p>Daqui em diante, o assunto é parceria. Você pode apresentar o Gerenciador PRO para outras pessoas, usar seu link exclusivo e acompanhar sua rede e suas comissões pela Central de Parceiros.</p>
+
+          <div class="partner-no-subscription" role="note" aria-label="Assinatura não obrigatória para parceiros">
+            <span class="partner-no-subscription-icon" aria-hidden="true">✓</span>
+            <div>
+              <strong>Você não precisa comprar uma assinatura do Gerenciador PRO para se tornar parceiro.</strong>
+              <p>Parceria e assinatura são independentes. Você pode criar sua conta, ativar o Programa de Parceiros, receber seu link e começar a divulgar sem adquirir o acesso PRO.</p>
+            </div>
+          </div>
+        </div>
+
         <div class="form-intro partner-intro">
-          <span class="eyebrow"><i></i> Programa de Parceiros</span>
-          <h2>Transforme sua indicação em uma rede organizada.</h2>
-          <p>Apresente o Gerenciador PRO ao seu público, use um link exclusivo e acompanhe indicações e comissões pela Central de Parceiros.</p>
+          <span class="eyebrow"><i></i> Vantagens para o parceiro</span>
+          <h3>Divulgue com estrutura, acompanhe sua rede e tenha comissões em mais de uma camada.</h3>
+          <p>O programa foi pensado para quem tem audiência, comunidade, grupo, canal ou simplesmente quer indicar o Gerenciador PRO para outras pessoas.</p>
 
           <div class="form-assurances partner-assurances">
             <article><span>30%</span><div><strong>Comissão direta</strong><small>Sobre assinaturas elegíveis feitas pelo seu link direto</small></div></article>
@@ -74,7 +88,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
             <span class="mini-label">COMO FUNCIONA</span>
             <ol>
               <li><b>1</b><div><strong>Crie ou acesse sua conta</strong><small>Entre pelo fluxo oficial do Gerenciador PRO.</small></div></li>
-              <li><b>2</b><div><strong>Ative a parceria</strong><small>Escolha participar do Programa de Parceiros.</small></div></li>
+              <li><b>2</b><div><strong>Ative a parceria</strong><small>Ative o Programa de Parceiros sem precisar comprar uma assinatura PRO.</small></div></li>
               <li><b>3</b><div><strong>Receba seu link</strong><small>Use o link exclusivo para apresentar o produto.</small></div></li>
               <li><b>4</b><div><strong>Acompanhe pela Central</strong><small>Visualize sua rede e as comissões registradas no programa.</small></div></li>
             </ol>
@@ -82,7 +96,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
 
           <div class="form-company-note partner-company-note">
             <span class="brand-mark small" aria-hidden="true"><img src="assets/brand/gp-mark-96.webp" srcset="assets/brand/gp-mark-192.webp 2x" width="96" height="96" alt=""></span>
-            <p><strong>Gerenciador PRO</strong><br>Produto e Programa de Parceiros no mesmo ecossistema.</p>
+            <p><strong>Gerenciador PRO</strong><br>Produto e Programa de Parceiros no mesmo ecossistema, com acessos independentes.</p>
           </div>
         </div>
 
@@ -92,7 +106,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
               <span class="mini-label">SIMULAÇÃO DE REDE</span>
               <h3>Visualize um cenário mensal.</h3>
             </div>
-            <span class="secure-badge">Assinatura de referência: R$ 79,00/mês</span>
+            <span class="secure-badge partner-independent-badge">PARCEIRO NÃO PRECISA SER ASSINANTE</span>
           </div>
 
           <div class="partner-direct-card">
@@ -110,7 +124,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
 
           <div class="partner-sim-intro">
             <strong>Cenário de rede em três níveis</strong>
-            <p>Nos três níveis abaixo, a simulação aplica 5% sobre a assinatura mensal de R$ 79,00 em cada nível.</p>
+            <p>A simulação abaixo usa a assinatura mensal de R$ 79,00 apenas como referência de cálculo e aplica 5% em cada nível da rede.</p>
           </div>
 
           <div class="partner-sim-grid" aria-live="polite">
@@ -140,8 +154,8 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
           <p class="partner-sim-note">Esta é uma demonstração matemática do cenário informado, não uma promessa de ganhos.</p>
 
           <div class="partner-action-row">
-            <a class="button button-primary" href="https://gerenciador-pro-commercial-production-production.up.railway.app/">Quero ser parceiro <span>→</span></a>
-            <small>A pessoa indicada segue o fluxo oficial de assinatura do Gerenciador PRO.</small>
+            <a class="button button-primary" href="https://gerenciador-pro-commercial-production-production.up.railway.app/">Quero me tornar parceiro <span>→</span></a>
+            <small><strong>Sem assinatura obrigatória:</strong> sua parceria pode ser ativada independentemente da compra do plano PRO.</small>
           </div>
         </div>
       </section>`;
