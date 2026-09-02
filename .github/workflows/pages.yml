@@ -27,6 +27,8 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Atualizar versão do script de parceiros
+        run: sed -i 's/config.js?v=20260803-2/config.js?v=20260902-4/' index.html
       - name: Preparar arquivos
         uses: actions/upload-pages-artifact@v3
         with:
