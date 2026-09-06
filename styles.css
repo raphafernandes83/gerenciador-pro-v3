@@ -4808,6 +4808,50 @@ h1, h2, h3, h4,
 }
 .form-step .button { min-width: 144px; }
 
+/* Contorno e respiro dos cards de explicação. Esses blocos tinham superfície,
+   mas não compartilhavam o mesmo padding e a borda sumia no tema claro. */
+.prova-abertura,
+.prova-motor,
+.prova-bloco,
+.prova-nota,
+.prova-fecho {
+  width: min(100%, var(--measure-reading));
+  padding: clamp(24px, 3.2vw, 38px);
+  border: 1.5px solid rgba(151, 174, 201, .32);
+  border-radius: 18px;
+  background: linear-gradient(150deg, var(--card-1), var(--card-2));
+  box-shadow: 0 16px 38px rgba(0,0,0,.16), inset 0 1px 0 var(--card-topo);
+}
+[data-tema="claro"] .prova-abertura,
+[data-tema="claro"] .prova-motor,
+[data-tema="claro"] .prova-bloco,
+[data-tema="claro"] .prova-nota,
+[data-tema="claro"] .prova-fecho {
+  border-color: rgba(74, 98, 126, .35);
+  box-shadow: 0 14px 34px rgba(38, 57, 77, .1), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.prova-abertura > :first-child,
+.prova-motor > :first-child,
+.prova-bloco > :first-child,
+.prova-nota > :first-child,
+.prova-fecho > :first-child { margin-top: 0; }
+.prova-abertura > :last-child,
+.prova-motor > :last-child,
+.prova-bloco > :last-child,
+.prova-nota > :last-child,
+.prova-fecho > :last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .prova-abertura,
+  .prova-motor,
+  .prova-bloco,
+  .prova-nota,
+  .prova-fecho {
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+}
+
 /* Hierarquia editorial dos cards matemáticos: títulos, premissas e
    conclusões ficam reconhecíveis durante a rolagem. */
 .sim-motor,
