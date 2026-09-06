@@ -73,7 +73,7 @@ jobs:
 
           extras = (
               '  <link rel="stylesheet" href="site-fixes.css?v=20260902-1">\n'
-              '  <script defer src="current-site-copy.js?v=20260902-2"></script>\n'
+              '  <script defer src="current-site-copy.js?v=20260906-1"></script>\n'
               '  <script defer src="site-fixes.js?v=20260902-1"></script>\n'
           )
           html = html.replace("</head>", extras + "</head>")
