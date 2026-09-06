@@ -154,7 +154,7 @@ window.GP_FORM_CONFIG={endpoint:"https://script.google.com/macros/s/AKfycbyiGH-5
           <p class="partner-sim-note">Esta é uma demonstração matemática do cenário informado, não uma promessa de ganhos.</p>
 
           <div class="partner-action-row">
-            <a class="button button-primary" href="https://gerenciador-pro-commercial-production-production.up.railway.app/">Quero me tornar parceiro <span>→</span></a>
+            <a class="button button-primary" href="https://app.gptrademanager.com/">Quero me tornar parceiro <span>→</span></a>
             <small><strong>Sem assinatura obrigatória:</strong> sua parceria pode ser ativada independentemente da compra do plano PRO.</small>
           </div>
         </div>
