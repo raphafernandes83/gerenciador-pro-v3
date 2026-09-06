@@ -401,6 +401,8 @@
   "msg.enviando": "Anmeldung wird gesendet…",
   "attr.17": "Sprache wechseln",
   "attr.18": "Design wechseln",
+  "theme.light": "Helles Design",
+  "theme.dark": "Dunkles Design",
   "simulacao.17": "9 $ verloren? Um alles mit einem einzigen Win zurückzuholen, müssten 10,35 $ riskiert werden.",
   "simulacao.18": "Vier Losses von 9 $ verlangen fünf Wins von 9 $, nur um den Verlust auszugleichen.",
   "simulacao.19": "Mit dem Gerenciador PRO wird die Erholung auf ein Ziel von zwei aufeinanderfolgenden Wins ausgerichtet.",

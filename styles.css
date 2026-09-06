@@ -2773,12 +2773,16 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 
 /* === Alternador de tema ============================================ */
 .tema-toggle {
-  width: 40px;
+  width: auto;
+  min-width: 40px;
   height: 40px;
   flex: 0 0 auto;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   position: relative;
+  padding: 0 13px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: var(--surface);
@@ -2788,9 +2792,22 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 }
 .tema-toggle:hover { color: var(--text); background: var(--surface-2); }
 .tema-toggle:active { transform: scale(.9); }
-.tema-toggle svg {
+.tema-icon {
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.tema-icon svg {
   grid-area: 1 / 1;
   transition: opacity .25s, transform .35s cubic-bezier(.16,.8,.24,1);
+}
+.tema-label {
+  font-size: .75rem;
+  font-weight: 750;
+  line-height: 1;
+  white-space: nowrap;
 }
 /* No escuro mostra o sol (o que a pessoa vai obter ao clicar);
    no claro, a lua. */
@@ -2990,7 +3007,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
   .site-header { gap: 9px; padding-inline: 13px; }
   .brand { gap: 9px; }
   .brand-copy strong { font-size: var(--fs-sm); }
-  .tema-toggle, .hamburger-btn { width: 38px; height: 38px; }
+  .tema-toggle { width: auto; height: 38px; padding-inline: 9px; gap: 6px; }
+  .tema-label { font-size: .67rem; }
+  .hamburger-btn { width: 38px; height: 38px; }
   .lang-toggle { min-height: 38px; padding: 0 7px; }
   .lang-flag { width: 20px; height: 14px; }
 }

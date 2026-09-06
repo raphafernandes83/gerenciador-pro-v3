@@ -401,6 +401,8 @@
   "msg.enviando": "Enviando registro…",
   "attr.17": "Cambiar idioma",
   "attr.18": "Cambiar tema",
+  "theme.light": "Tema claro",
+  "theme.dark": "Tema oscuro",
   "simulacao.17": "¿Perdiste $9? Para recuperar todo en un solo Win, habría que arriesgar $10,35.",
   "simulacao.18": "Cuatro Losses de $9 exigen cinco Wins de $9 solamente para recuperar la pérdida.",
   "simulacao.19": "Con el Gerenciador PRO, la recuperación se prepara para un objetivo de dos Wins consecutivos.",

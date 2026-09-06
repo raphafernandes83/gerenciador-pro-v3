@@ -401,6 +401,8 @@
   "msg.enviando": "등록을 보내는 중…",
   "attr.17": "언어 변경",
   "attr.18": "테마 변경",
+  "theme.light": "밝은 테마",
+  "theme.dark": "어두운 테마",
   "simulacao.17": "$9를 잃었나요? 단 한 번의 Win으로 전부 되찾으려면 $10.35를 걸어야 합니다.",
   "simulacao.18": "$9짜리 Loss 네 번은 손실을 되돌리는 데만 $9짜리 Win 다섯 번이 필요합니다.",
   "simulacao.19": "Gerenciador PRO에서는 연속 Win 2회를 목표로 회복이 준비됩니다.",

@@ -401,6 +401,8 @@
   "msg.enviando": "正在提交登记…",
   "attr.17": "切换语言",
   "attr.18": "切换主题",
+  "theme.light": "浅色主题",
+  "theme.dark": "深色主题",
   "simulacao.17": "亏了 $9？要靠一次 Win 全部补回，就得押上 $10.35。",
   "simulacao.18": "四次 $9 的 Loss，需要五次 $9 的 Win 才刚好补回亏损。",
   "simulacao.19": "在 Gerenciador PRO 中，回补是按“连续两次 Win”这个目标来准备的。",

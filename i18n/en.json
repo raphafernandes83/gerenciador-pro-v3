@@ -401,6 +401,8 @@
   "msg.enviando": "Sending registration…",
   "attr.17": "Change language",
   "attr.18": "Switch theme",
+  "theme.light": "Light theme",
+  "theme.dark": "Dark theme",
   "simulacao.17": "Lost $9? To recover it all in a single Win, you would have to risk $10.35.",
   "simulacao.18": "Four $9 Losses require five $9 Wins just to recover the loss.",
   "simulacao.19": "With Gerenciador PRO, the recovery is prepared for a target of two consecutive Wins.",

@@ -33,11 +33,13 @@
 
     document.querySelectorAll("[data-alternar-tema]").forEach(botao => {
       botao.setAttribute("aria-pressed", String(tema === "claro"));
-      const rotulo = tema === "claro" ? "escuro" : "claro";
-      botao.setAttribute(
-        "aria-label",
-        (window.GP_I18N ? window.GP_I18N.t("attr.18", "Switch theme") : "Switch theme") + " — " + rotulo
-      );
+      const chave = tema === "claro" ? "theme.dark" : "theme.light";
+      const fallback = tema === "claro" ? "Dark theme" : "Light theme";
+      const rotulo = window.GP_I18N ? window.GP_I18N.t(chave, fallback) : fallback;
+      botao.setAttribute("aria-label", rotulo);
+      botao.setAttribute("title", rotulo);
+      const texto = botao.querySelector("[data-theme-label]");
+      if (texto) texto.textContent = rotulo;
     });
 
     if (guardar) {
