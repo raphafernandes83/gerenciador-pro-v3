@@ -83,15 +83,19 @@
   color: #1b5f96 !important;
 }
 
-/* Quem pediu menos animacao mantem o aviso, sem o movimento. */
+/* Este ponto funciona como aviso de navegação e deve pulsar em todos os
+   dispositivos. A exceção explícita abaixo impede que a preferência global
+   do sistema operacional reduza sua animação a 0,01 ms. */
 @media (prefers-reduced-motion: reduce) {
   .header-nav > a.nav-simulacao::before,
   .mobile-menu a.nav-simulacao::before {
-    animation: none;
-    box-shadow: 0 0 0 3px rgba(86, 183, 255, .3);
+    animation-name: simulacao-aviso !important;
+    animation-duration: 2.4s !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
   }
   [data-tema="claro"] .header-nav > a.nav-simulacao::before,
   [data-tema="claro"] .mobile-menu a.nav-simulacao::before {
-    box-shadow: 0 0 0 3px rgba(27, 95, 150, .32);
+    animation-name: simulacao-aviso-claro !important;
   }
 }
