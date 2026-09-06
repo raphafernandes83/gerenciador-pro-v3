@@ -4310,6 +4310,18 @@ h1, h2, h3, h4,
 }
 .launch-bar strong { color: var(--muted); }
 .launch-bar a { color: var(--brand-orange-hi); }
+.launch-bar .launch-arrival {
+  color: var(--text);
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+.launch-bar .launch-arrival strong {
+  color: var(--brand-orange-hi);
+  font-size: inherit;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px color-mix(in srgb, var(--brand-orange-hi) 42%, transparent);
+}
 .launch-pulse { background: var(--green); box-shadow: 0 0 12px color-mix(in srgb, var(--green) 45%, transparent); }
 .site-header {
   top: 10px;
