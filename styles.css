@@ -4334,6 +4334,108 @@ h1, h2, h3, h4,
   font-weight: 650;
   letter-spacing: .01em;
 }
+
+/* Pontos de leitura solicitados: o rótulo abre o capítulo com presença,
+   os dados decisivos ficam sublinhados e a conclusão segura o olhar. */
+.statement-label {
+  width: fit-content;
+  padding: 10px 13px;
+  border-left: 4px solid var(--blue);
+  border-radius: 4px 12px 12px 4px;
+  background: linear-gradient(90deg, var(--hook-blue-soft), transparent);
+  color: var(--blue-text);
+  font-size: clamp(.95rem, 1.45vw, 1.2rem);
+  line-height: 1.25;
+  letter-spacing: .12em;
+  text-wrap: balance;
+}
+
+.sim-passos .sim-texto-chave {
+  padding: 10px 12px;
+  border-radius: 9px;
+  color: var(--text) !important;
+  font-weight: 780;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.sim-passos .sim-texto-risco {
+  background: var(--sim-risk-soft);
+  text-decoration-color: var(--red);
+}
+.sim-passos .sim-texto-deficit {
+  background: var(--sim-info-soft);
+  text-decoration-color: var(--blue);
+}
+
+.sim-compara.sim-compara-destaque {
+  position: relative;
+  isolation: isolate;
+  margin-block: 52px 30px;
+  padding: clamp(27px, 4vw, 42px);
+  overflow: hidden;
+  border: 1px solid var(--sim-product-line);
+  border-left: 6px solid var(--orange);
+  background:
+    radial-gradient(circle at 92% 8%, var(--sim-product-soft), transparent 38%),
+    linear-gradient(120deg, var(--card-1), var(--card-2));
+  box-shadow: 0 18px 46px rgba(0,0,0,.18), inset 0 1px 0 var(--card-topo);
+}
+.sim-compara.sim-compara-destaque::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 35%, var(--sim-product-soft), transparent 68%);
+  transform: translateX(-100%);
+  animation: sim-conclusao-luz 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes sim-conclusao-luz {
+  0%, 35% { transform: translateX(-100%); opacity: 0; }
+  48% { opacity: 1; }
+  65%, 100% { transform: translateX(100%); opacity: 0; }
+}
+.sim-compara.sim-compara-destaque h3 {
+  max-width: 950px;
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-family: var(--fonte-idioma, Manrope), Manrope, Inter, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 7px;
+}
+.sim-compara-destaque .sim-lista { gap: 9px; }
+.sim-compara-destaque .sim-lista li {
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px 12px 7px 30px;
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: clamp(.95rem, 1.25vw, 1.08rem);
+}
+.sim-compara-destaque .sim-lista .sim-chave {
+  margin-top: 5px;
+  padding: 13px 16px 13px 34px;
+  border: 1px solid var(--sim-product-line);
+  background: var(--sim-product-soft);
+  color: var(--text) !important;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+  .statement-label { font-size: 1rem; }
+  .sim-compara.sim-compara-destaque { margin-block: 38px 24px; }
+}
 .launch-bar .launch-arrival strong {
   color: var(--brand-orange-hi);
   font-size: inherit;
